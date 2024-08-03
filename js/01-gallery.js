@@ -30,13 +30,16 @@ galleryEl.addEventListener('click', event => {
     return;
   }
   const instance = basicLightbox.create(`
-    <img src = ${currentItem.source} width="800" height="600">
+    <img src = ${event.target.dataset.source} width="800" height="600">
 `);
 
   instance.show();
 
-  window.addEventListener('keydown', onEscPress)
+
+
+  galleryEl.addEventListener('keydown', onEscPress);
   function onEscPress(event) {
+    if(event.code === "Escape")
     instance.close();
   }
  
