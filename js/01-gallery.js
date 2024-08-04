@@ -37,7 +37,6 @@ galleryEl.addEventListener('click', event => {
       instance.element().querySelector('a').onclick = instance.close
   }
 });
-
   instance.show();
 
   galleryEl.addEventListener('keydown', onEscPress);
