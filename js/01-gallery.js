@@ -29,13 +29,16 @@ galleryEl.addEventListener('click', event => {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
+
   const instance = basicLightbox.create(`
     <img src = ${event.target.dataset.source} width="800" height="600">
-`);
+`, {
+  onShow: (instance) => {
+      instance.element().querySelector('a').onclick = instance.close
+  }
+});
 
   instance.show();
-
-
 
   galleryEl.addEventListener('keydown', onEscPress);
   function onEscPress(event) {
@@ -44,3 +47,7 @@ galleryEl.addEventListener('click', event => {
   }
  
 });
+
+
+
+
